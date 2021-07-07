@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="ListaVideojuego">
+  <grid id="27dc6" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="f44af" binding="panelVideojuego" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="359ed" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints border-constraint="North"/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="dc5b5" class="javax.swing.JButton" binding="btn_crear">
+                <constraints border-constraint="South"/>
+                <properties>
+                  <text value="Crear"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="1eaa7" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints border-constraint="South"/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="896d6" class="javax.swing.JButton" binding="btn_eliminar">
+                <constraints border-constraint="North"/>
+                <properties>
+                  <enabled value="true"/>
+                  <text value="Eliminar"/>
+                </properties>
+              </component>
+              <component id="ea426" class="javax.swing.JButton" binding="btn_editar">
+                <constraints border-constraint="Center"/>
+                <properties>
+                  <text value="Editar"/>
+                </properties>
+              </component>
+              <component id="9a5a4" class="javax.swing.JButton" binding="btn_regresar">
+                <constraints border-constraint="South"/>
+                <properties>
+                  <text value="Regresar"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <scrollpane id="e50ba">
+            <constraints border-constraint="Center"/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="661aa" class="javax.swing.JTable" binding="tablaVideojuegos">
+                <constraints/>
+                <properties>
+                  <autoCreateRowSorter value="false"/>
+                  <cellSelectionEnabled value="false"/>
+                  <columnSelectionAllowed value="false"/>
+                  <editingColumn value="-1"/>
+                  <editingRow value="-1"/>
+                  <enabled value="true"/>
+                  <fillsViewportHeight value="false"/>
+                  <focusCycleRoot value="false"/>
+                  <focusable value="true"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

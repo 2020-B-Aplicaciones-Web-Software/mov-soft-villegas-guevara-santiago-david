@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="ListaEmpresas">
+  <grid id="27dc6" binding="panelEmpresas" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="f074" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="North"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="ecfa1" class="javax.swing.JButton" binding="btn_crear">
+            <constraints border-constraint="South"/>
+            <properties>
+              <text value="Crear"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="c754f" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="South"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="b9513" class="javax.swing.JButton" binding="btn_eliminar">
+            <constraints border-constraint="North"/>
+            <properties>
+              <enabled value="true"/>
+              <text value="Eliminar"/>
+            </properties>
+          </component>
+          <component id="16bb8" class="javax.swing.JButton" binding="btn_editar">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <text value="Editar"/>
+            </properties>
+          </component>
+          <component id="8ed4e" class="javax.swing.JButton" binding="btn_verJuegos">
+            <constraints border-constraint="South"/>
+            <properties>
+              <text value="Ver videojuegos"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <scrollpane id="e572c">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="f1810" class="javax.swing.JTable" binding="tablaDesarolladores">
+            <constraints/>
+            <properties>
+              <autoCreateRowSorter value="false"/>
+              <cellSelectionEnabled value="false"/>
+              <columnSelectionAllowed value="false"/>
+              <editingColumn value="-1"/>
+              <editingRow value="-1"/>
+              <enabled value="true"/>
+              <fillsViewportHeight value="false"/>
+              <focusCycleRoot value="false"/>
+              <focusable value="true"/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
+    </children>
+  </grid>
+</form>

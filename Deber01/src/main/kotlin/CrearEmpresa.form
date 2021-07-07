@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="CrearEmpresa">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="505" height="423"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="44795" class="javax.swing.JLabel">
+        <constraints border-constraint="North"/>
+        <properties>
+          <font name="Lucida Sans Typewriter" size="20" style="0"/>
+          <horizontalAlignment value="0"/>
+          <horizontalTextPosition value="0"/>
+          <opaque value="false"/>
+          <text value="Datos de la empresa Desarrolladora"/>
+          <verticalAlignment value="0"/>
+        </properties>
+      </component>
+      <grid id="a707b" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <splitpane id="4f0ba">
+            <constraints border-constraint="North"/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="4d0a4" class="javax.swing.JLabel">
+                <constraints>
+                  <splitpane position="left"/>
+                </constraints>
+                <properties>
+                  <font name="Fira Code" size="14" style="1"/>
+                  <text value="Nombre:"/>
+                </properties>
+              </component>
+              <component id="b5996" class="javax.swing.JTextField" binding="text_nombre">
+                <constraints>
+                  <splitpane position="right"/>
+                </constraints>
+                <properties>
+                  <columns value="10"/>
+                  <text value=""/>
+                </properties>
+              </component>
+            </children>
+          </splitpane>
+          <grid id="2efe0" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints border-constraint="Center"/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <splitpane id="94028">
+                <constraints border-constraint="North"/>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="23742" class="javax.swing.JLabel">
+                    <constraints>
+                      <splitpane position="left"/>
+                    </constraints>
+                    <properties>
+                      <font name="Fira Code" size="14" style="1"/>
+                      <text value="Número de trabajadores:"/>
+                    </properties>
+                  </component>
+                  <component id="5888d" class="javax.swing.JTextField" binding="text_numeroTrabajadores">
+                    <constraints>
+                      <splitpane position="right"/>
+                    </constraints>
+                    <properties>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </splitpane>
+              <grid id="16ae8" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints border-constraint="Center"/>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <splitpane id="c3d92">
+                    <constraints border-constraint="North"/>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="4cb73" class="javax.swing.JLabel">
+                        <constraints>
+                          <splitpane position="left"/>
+                        </constraints>
+                        <properties>
+                          <font name="Fira Code" size="14" style="1"/>
+                          <text value="Fecha de fundación:"/>
+                        </properties>
+                      </component>
+                      <component id="4a1c4" class="javax.swing.JTextField" binding="text_fechaFundacion">
+                        <constraints>
+                          <splitpane position="right"/>
+                        </constraints>
+                        <properties/>
+                      </component>
+                    </children>
+                  </splitpane>
+                  <grid id="8b941" layout-manager="BorderLayout" hgap="0" vgap="0">
+                    <constraints border-constraint="Center"/>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <splitpane id="d9262">
+                        <constraints border-constraint="North"/>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <component id="cd494" class="javax.swing.JLabel">
+                            <constraints>
+                              <splitpane position="left"/>
+                            </constraints>
+                            <properties>
+                              <font name="Fira Code" size="14" style="1"/>
+                              <text value="País:"/>
+                            </properties>
+                          </component>
+                          <component id="fa8a8" class="javax.swing.JTextField" binding="text_pais">
+                            <constraints>
+                              <splitpane position="right"/>
+                            </constraints>
+                            <properties/>
+                          </component>
+                        </children>
+                      </splitpane>
+                      <grid id="ebbc0" layout-manager="BorderLayout" hgap="0" vgap="0">
+                        <constraints border-constraint="Center"/>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <splitpane id="54563">
+                            <constraints border-constraint="North"/>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="68ad9" class="javax.swing.JLabel">
+                                <constraints>
+                                  <splitpane position="left"/>
+                                </constraints>
+                                <properties>
+                                  <font name="Fira Code" size="14" style="1"/>
+                                  <text value="Indie?:"/>
+                                </properties>
+                              </component>
+                              <component id="348c0" class="javax.swing.JTextField" binding="text_independiente">
+                                <constraints>
+                                  <splitpane position="right"/>
+                                </constraints>
+                                <properties/>
+                              </component>
+                            </children>
+                          </splitpane>
+                          <splitpane id="53665">
+                            <constraints border-constraint="South"/>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="54a93" class="javax.swing.JButton" binding="btn_guardarVideojuego">
+                                <constraints>
+                                  <splitpane position="right"/>
+                                </constraints>
+                                <properties>
+                                  <text value="Guardar"/>
+                                </properties>
+                              </component>
+                              <component id="1f33f" class="javax.swing.JButton" binding="btn_regresar">
+                                <constraints>
+                                  <splitpane position="left"/>
+                                </constraints>
+                                <properties>
+                                  <text value="Regresar"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </splitpane>
+                        </children>
+                      </grid>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+            </children>
+          </grid>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
