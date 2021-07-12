@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         intentExplicito.putExtra("nombre","Santiago")
         intentExplicito.putExtra("apellido","Villegas")
         intentExplicito.putExtra("edad",21)
-        intentExplicito.putExtra("entrenador",BEntrenador("Santiago","Villegas"))
+        intentExplicito.putExtra("entrenador",BEntrenador("Santiago","Villegas",null))
         startActivityForResult(intentExplicito,CODIGO_RESPUESTA_INTENT_EXPLICITO)
     }
 

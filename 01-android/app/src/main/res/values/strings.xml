@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">moviles-software-2021-a</string>
     <string name="bienvenida">Bienvenidos</string>
+    <string-array name="string_array_opciones_dialogo">
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+    </string-array>
 </resources>
