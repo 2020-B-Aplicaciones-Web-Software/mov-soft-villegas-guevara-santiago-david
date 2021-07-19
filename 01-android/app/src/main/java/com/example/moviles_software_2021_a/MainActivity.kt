@@ -24,6 +24,13 @@ class MainActivity : AppCompatActivity() {
             )
 
         }
+
+        val botonIrRecycler= findViewById<Button>(
+            R.id.btn_ir_recycler_view2
+        )
+        botonIrRecycler.setOnClickListener{
+            abrirActividadConParametros(GRecyclerView::class.java)
+        }
         val botoIrListView=findViewById<Button>(
             R.id.btn_ir_list_view
         )

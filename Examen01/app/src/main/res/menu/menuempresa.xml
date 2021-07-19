@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Item_Deditar"
+        android:title="Editar" />
+    <item
+        android:id="@+id/Item_Deliminar"
+        android:title="Eliminar" />
+    <item
+        android:id="@+id/Item_DverVideojuego"
+        android:title="Ver Videojuegos" />
+</menu>
