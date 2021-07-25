@@ -73,7 +73,7 @@ class EditarEmpresa : AppCompatActivity() {
                     "Si",
                     { dialog, which ->
                         if (empresa != null) {
-                            instanciaEmpresaBDD.actualizarUsuarioFormulario(
+                            instanciaEmpresaBDD.actualizarEmpresaFormulario(
                                 txtNombre.getText().toString(),
                                 Integer.parseInt(txtTrabajadores.getText().toString()),
                                 txtFecha.getText().toString(),

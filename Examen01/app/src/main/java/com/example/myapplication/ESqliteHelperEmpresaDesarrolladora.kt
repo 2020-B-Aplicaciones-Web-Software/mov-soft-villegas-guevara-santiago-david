@@ -134,7 +134,7 @@ class ESqliteHelperEmpresaDesarrolladora (contexto: Context?
         return if (resultadoEliminado.toInt()==-1)false else true
     }
 
-    fun actualizarUsuarioFormulario(
+    fun actualizarEmpresaFormulario(
         nombre: String,
         numeroTrabajadores: Int,
         fechaFundacion: String,
