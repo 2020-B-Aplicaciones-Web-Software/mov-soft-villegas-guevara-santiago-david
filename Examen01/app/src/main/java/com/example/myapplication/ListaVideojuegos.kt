@@ -22,6 +22,7 @@ class ListaVideojuegos : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista_videojuegos)
+        this.setTitle("Videojuegos")
         val empresa=intent.getParcelableExtra<EmpresaDesarrolladora>("Empresa")
 
 
@@ -32,7 +33,9 @@ class ListaVideojuegos : AppCompatActivity() {
             R.id.btn_crearVideojuego
         )
         txtEmpresa.setText(empresa?.nombre)
-
+        val botonRegresar = findViewById<Button>(
+            R.id.btn_regresar
+        )
 
 
         if (empresa != null) {
@@ -56,6 +59,9 @@ class ListaVideojuegos : AppCompatActivity() {
                 )
             }
 
+        }
+        botonRegresar.setOnClickListener {
+            abrir(MainActivity::class.java)
         }
 
 
@@ -151,6 +157,13 @@ class ListaVideojuegos : AppCompatActivity() {
 
         intentExplicito.putExtra("Empresa", empresa)
         startActivityForResult(intentExplicito, CODIGO_RESPUESTA_INTENT_EXPLICITO)
+    }
+    fun abrir(
+        clase: Class<*>
+    ){
+
+        val intentExplicito=Intent(this, clase)
+        startActivity(intentExplicito)
     }
 
     fun abrirActividadConParametrosJuego(

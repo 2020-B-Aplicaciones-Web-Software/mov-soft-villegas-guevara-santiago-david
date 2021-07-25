@@ -25,6 +25,17 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        val botonIrHTTP= findViewById<Button>(
+            R.id.btn_ir_http
+        )
+        botonIrHTTP.setOnClickListener{
+            abrirActividadConParametros(
+                HHTTPActivity::class.java
+            )
+
+        }
+
+
         val botonIrRecycler= findViewById<Button>(
             R.id.btn_ir_recycler_view2
         )

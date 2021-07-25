@@ -25,9 +25,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        this.setTitle("Empresas")
         val botonCrearEmpresa = findViewById<Button>(
             R.id.btn_crearEmpresa
         )
+
         listaEmpresas=instanciaEmpresaBDD.consultarEmpresas()
         val adaptador= ArrayAdapter(
             this,//Contexto

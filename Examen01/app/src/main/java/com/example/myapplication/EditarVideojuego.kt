@@ -16,6 +16,7 @@ class EditarVideojuego : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_videojuego)
+        this.setTitle("Editar Videojuego")
         val empresa=intent.getParcelableExtra<EmpresaDesarrolladora>("Empresa")
         val videojuego=intent.getParcelableExtra<Videojuego>("Juego")
 

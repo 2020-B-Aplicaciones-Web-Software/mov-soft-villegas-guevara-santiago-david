@@ -11,9 +11,12 @@ import java.text.SimpleDateFormat
 
 class EditarEmpresa : AppCompatActivity() {
     val instanciaEmpresaBDD=ESqliteHelperEmpresaDesarrolladora(this)
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_empresa)
+        this.setTitle("Editar empresa")
         val empresa=intent.getParcelableExtra<EmpresaDesarrolladora>("Empresa")
 
         val txtNombre=findViewById<EditText>(

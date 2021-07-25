@@ -179,4 +179,5 @@ class ESqliteHelperVideojuego(contexto: Context?
 
     }
 
+
 }

@@ -14,6 +14,7 @@ class CrearEmpresa : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_crear_empresa)
+        this.setTitle("Crear empresa")
 
         val txtNombre=findViewById<EditText>(
             R.id.editText_nombreEmpresa
