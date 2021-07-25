@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
             R.id.btn_crearEmpresa
         )
 
+
+
         listaEmpresas=instanciaEmpresaBDD.consultarEmpresas()
         val adaptador= ArrayAdapter(
             this,//Contexto

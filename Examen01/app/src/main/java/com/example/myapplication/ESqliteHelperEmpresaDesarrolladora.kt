@@ -11,13 +11,13 @@ import java.util.*
 class ESqliteHelperEmpresaDesarrolladora (contexto: Context?
 ): SQLiteOpenHelper(
     contexto,
-    "moviles",
+    "examen1",
     null,
     1
 )
 {
     override fun onCreate(db: SQLiteDatabase?) {
-        val scriptCrearTablaUsuario=
+        val scriptCrearTablaEmpresa=
             """
             CREATE TABLE EMPRESA(
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -30,7 +30,26 @@ class ESqliteHelperEmpresaDesarrolladora (contexto: Context?
             )
             """.trimIndent()
         Log.i("bbd","Creando la tabla empresa desarrolladora")
-        db?.execSQL(scriptCrearTablaUsuario)
+        db?.execSQL(scriptCrearTablaEmpresa)
+
+        val scriptCrearTablaVideojuego=
+            """
+            CREATE TABLE VIDEOJUEGO(
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                nombre VARCHAR(50),
+                recaudacion DOUBLE,
+                fechaSalida VARCHAR(15),
+                generoPrincipal VARCHAR(50),
+                multijugador VARCHAR(5),
+                empresaId INTEGER,
+                FOREIGN KEY (empresaId) REFERENCES EMPRESA (id) 
+                ON UPDATE CASCADE
+                ON DELETE CASCADE
+                
+            )
+            """.trimIndent()
+        Log.i("bbd","Creando la tabla empresa desarrolladora")
+        db?.execSQL(scriptCrearTablaVideojuego)
 
     }
 
@@ -149,6 +168,13 @@ class ESqliteHelperEmpresaDesarrolladora (contexto: Context?
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
 
+    }
+    override fun onOpen(db: SQLiteDatabase) {
+        super.onOpen(db)
+        if (!db.isReadOnly) {
+            // Enable foreign key constraints
+            db.execSQL("PRAGMA foreign_keys=ON;")
+        }
     }
 
 

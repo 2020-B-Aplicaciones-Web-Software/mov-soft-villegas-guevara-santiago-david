@@ -11,7 +11,7 @@ import java.util.ArrayList
 class ESqliteHelperVideojuego(contexto: Context?
 ): SQLiteOpenHelper(
     contexto,
-    "moviles1",
+    "examen1",
     null,
     1
 
@@ -21,24 +21,7 @@ class ESqliteHelperVideojuego(contexto: Context?
 
     override fun onCreate(db: SQLiteDatabase?) {
 
-        val scriptCrearTablaUsuario=
-            """
-            CREATE TABLE VIDEOJUEGO(
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                nombre VARCHAR(50),
-                recaudacion DOUBLE,
-                fechaSalida VARCHAR(15),
-                generoPrincipal VARCHAR(50),
-                multijugador VARCHAR(5),
-                empresaId INTEGER,
-                FOREIGN KEY (empresaId) REFERENCES EMPRESA (id) 
-                ON UPDATE CASCADE
-                ON DELETE CASCADE
-                
-            )
-            """.trimIndent()
-        Log.i("bbd","Creando la tabla empresa desarrolladora")
-        db?.execSQL(scriptCrearTablaUsuario)
+
 
     }
 
