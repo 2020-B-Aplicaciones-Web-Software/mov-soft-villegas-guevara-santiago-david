@@ -38,7 +38,7 @@ class BListView : AppCompatActivity() {
                 adapterView,view,posicion,id->
             Log.i("list_view","Dio clic ${posicion}")
 
-            val builder=AlertDialog.Builder(this)
+            val builder= android.app.AlertDialog.Builder(this)
             builder.setTitle("Titulo")
             //builder.setMessage("Mensaje")
             val seleccionUsuario= booleanArrayOf(
