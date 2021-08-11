@@ -51,8 +51,8 @@ class RecyclerViewAdaptadorJuego(
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val juego=listaJuego[position]
         val calculoPrecio=juego.precio*(100.00-juego.descuento)/100.00
-        val precio="$"+calculoPrecio.toString()
-        val descuento="-"+juego.descuento.toString()
+        val precio="$"+String.format("%.2f", calculoPrecio);
+        val descuento="-"+String.format("%.2f", juego.descuento);
         holder.descuento.text=descuento
         holder.precio.text=precio
         holder.portada.setImageResource(juego.portada)

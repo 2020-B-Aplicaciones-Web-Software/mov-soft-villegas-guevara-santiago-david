@@ -84,7 +84,7 @@ class Videojuego(
             arregloVideojuego
                 .add(
                     Videojuego("God of war",R.drawable.ic_play,20.00
-                        ,50.00,R.drawable.ic_god,1,"20 abril 2018"
+                        ,0.00,R.drawable.ic_god,1,"20 abril 2018"
                         ,"Santa Monica", "PlaySation","","")
                 )
             arregloVideojuego
