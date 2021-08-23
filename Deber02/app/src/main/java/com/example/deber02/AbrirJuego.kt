@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -93,6 +94,10 @@ class AbrirJuego : AppCompatActivity() {
         )
         val descuentoC="-"+String.format("%.2f", juego.descuento)+"%";
         descuento.text=descuentoC
+        if (juego.descuento==0.00){
+            descuento.isVisible=false
+
+        }
 
         val precio=findViewById<TextView>(
             R.id.text_precio

@@ -90,8 +90,9 @@
 
     <ImageView
         android:id="@+id/img_portadaInicio"
-        android:layout_width="411dp"
-        android:layout_height="199dp"
+        android:layout_width="408dp"
+        android:layout_height="201dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -119,7 +120,8 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="64dp"
         android:layout_weight="1"
         android:text="Precio de venta al público:"
         android:textColor="#5A5252"
@@ -130,13 +132,12 @@
         android:id="@+id/text_precio"
         android:layout_width="91dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="44dp"
         android:layout_weight="1"
         android:text="$4.23ee"
         android:textColor="#5A5252"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <TextView
@@ -144,8 +145,7 @@
         android:layout_width="68dp"
         android:layout_height="16dp"
         android:layout_marginStart="123dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="220dp"
+        android:layout_marginTop="40dp"
         android:layout_weight="1"
         android:fontFamily="@font/fuente"
         android:gravity="center"
@@ -153,8 +153,6 @@
         android:textAlignment="center"
         android:textColor="#ff5400"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView4" />
 
@@ -162,7 +160,8 @@
         android:id="@+id/text_precioConDescuento"
         android:layout_width="99dp"
         android:layout_height="24dp"
-        android:layout_marginEnd="128dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="112dp"
         android:layout_weight="1"
         android:fontFamily="@font/fuente"
         android:gravity="center"
@@ -171,7 +170,6 @@
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_descuento"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <LinearLayout
@@ -179,7 +177,6 @@
         android:layout_width="407dp"
         android:layout_height="65dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="1dp"
         android:background="@color/fondoJuego"
         android:orientation="vertical"
@@ -229,7 +226,7 @@
                 android:text="Steam"
                 android:textAlignment="center"
                 android:textColor="@color/precio"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/text_desarrollador"
@@ -244,33 +241,30 @@
                 android:textColor="@color/precio"
                 android:textSize="16sp" />
 
+            <TextView
+                android:id="@+id/text_desarrollador3"
+                android:layout_width="match_parent"
+                android:layout_height="23dp"
+                android:layout_weight="1"
+                android:background="@drawable/estilo_separador"
+
+                android:fontFamily="@font/fuente"
+                android:gravity="center"
+                android:text="En stock"
+                android:textAlignment="center"
+                android:textColor="@color/precio"
+                android:textSize="16sp" />
+
         </LinearLayout>
 
     </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerJuegoJ"
-        android:layout_width="411dp"
-        android:layout_height="163dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="122dp"
-        android:layout_marginBottom="4dp"
-        android:background="@color/fondoJuego"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.008"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.0">
-
-    </androidx.recyclerview.widget.RecyclerView>
 
     <Button
         android:id="@+id/button"
         android:layout_width="288dp"
         android:layout_height="50dp"
         android:layout_marginStart="17dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="28dp"
         android:background="@drawable/estilo_descuento"
         android:fontFamily="@font/fuente"
@@ -280,44 +274,79 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/text_descuento" />
+        app:layout_constraintTop_toBottomOf="@+id/text_precioConDescuento" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="19dp"
         app:layout_constraintEnd_toStartOf="@+id/button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/text_precioConDescuento"
         app:srcCompat="@drawable/ic_like" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="413dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:background="@color/fondoJuego"
-        android:orientation="vertical"
+    <ScrollView
+        android:layout_width="412dp"
+        android:layout_height="111dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="3dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintTop_toBottomOf="@+id/button">
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="180dp"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/fuente"
-            android:gravity="bottom"
-            android:text="También podría gustarte……"
-            android:textAlignment="center"
-            android:textColor="@color/precio"
-            android:textSize="12sp" />
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="413dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:background="@color/fondoJuego"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/fuente"
+                    android:gravity="bottom"
+                    android:text="También podría gustarte……"
+                    android:textAlignment="center"
+                    android:textColor="@color/precio"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerJuegoJ"
+                android:layout_width="411dp"
+                android:layout_height="184dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="122dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/fondoJuego">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="414dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:srcCompat="@drawable/ic_idiomas" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
