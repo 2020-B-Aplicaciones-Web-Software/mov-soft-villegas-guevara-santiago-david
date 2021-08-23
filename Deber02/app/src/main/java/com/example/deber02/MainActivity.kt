@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
+    val CODIGO_RESPUESTA_INTENT_EXPLICITO=401
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -177,6 +178,17 @@ class MainActivity : AppCompatActivity() {
         )
         startActivity(intentExplicito)
     }
+
+    fun abrirJuego(
+        clase: Class<*>,
+        juego:Videojuego
+    ) {
+        val intentExplicito = Intent(this,clase)
+
+        intentExplicito.putExtra("juego",juego)
+        startActivityForResult(intentExplicito,CODIGO_RESPUESTA_INTENT_EXPLICITO)
+    }
+
 
 
 }

@@ -1,15 +1,11 @@
 package com.example.deber02
 
-import android.content.Context
-import android.content.Intent
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 
@@ -32,7 +28,6 @@ class RecyclerViewAdaptadorJuego(
             portada = view.findViewById(R.id.img_portada)
             plataforma = view.findViewById(R.id.img_plataforma)
             portada.setOnClickListener {
-                contexto.abrirActividad(MainActivity::class.java)
 
             }
 
@@ -52,11 +47,15 @@ class RecyclerViewAdaptadorJuego(
         val juego=listaJuego[position]
         val calculoPrecio=juego.precio*(100.00-juego.descuento)/100.00
         val precio="$"+String.format("%.2f", calculoPrecio);
-        val descuento="-"+String.format("%.2f", juego.descuento);
+        val descuento="-"+String.format("%.0f", juego.descuento)+"%"
         holder.descuento.text=descuento
         holder.precio.text=precio
         holder.portada.setImageResource(juego.portada)
         holder.plataforma.setImageResource(juego.plataforma)
+        holder.portada.setOnClickListener(View.OnClickListener
+        { contexto.
+        abrirJuego(AbrirJuego::class.java,juego) })
+
 
         if (juego.descuento==0.00){
             holder.descuento.isVisible=false

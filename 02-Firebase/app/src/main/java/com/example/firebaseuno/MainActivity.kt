@@ -1,11 +1,11 @@
-package com.example.deber02
+package com.example.firebaseuno
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class Juego : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_juego)
+        setContentView(R.layout.activity_main)
     }
 }

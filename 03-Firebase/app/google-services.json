@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "1011406745468",
+    "project_id": "movsoft-2021a-villegue",
+    "storage_bucket": "movsoft-2021a-villegue.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011406745468:android:4c266232068b09ba403ef9",
+        "android_client_info": {
+          "package_name": "com.example.firebasedos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1011406745468-c8cqfk5a0ao43ar9ral0cslp4p8g2cus.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_foEcdwUPrklDOXNarYGwKfSh3wrEWSM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1011406745468-c8cqfk5a0ao43ar9ral0cslp4p8g2cus.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011406745468:android:7b238495fd9ec3ee403ef9",
+        "android_client_info": {
+          "package_name": "com.example.firebaseuno"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1011406745468-c8cqfk5a0ao43ar9ral0cslp4p8g2cus.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_foEcdwUPrklDOXNarYGwKfSh3wrEWSM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1011406745468-c8cqfk5a0ao43ar9ral0cslp4p8g2cus.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
