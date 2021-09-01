@@ -1,21 +1,29 @@
 package com.example.firebaseuno
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.ContextMenu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
-import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.example.firebaseuno.dto.FirestoreProductoDto
 import com.example.firebaseuno.dto.FirestoreRestauranteDto
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
+
 class EOrdenes : AppCompatActivity() {
 
     var posicionItemSeleccionado=0
+    lateinit var  adaptadorRestaurante: ArrayAdapter<RestauranteFirebase>
+    lateinit var  adaptadorProducto: ArrayAdapter<ProductoFirebase>
+    lateinit var  adaptadorOrden: ArrayAdapter<OrdenFirebase>
+
+
+
+
+
 
 
 
@@ -26,34 +34,35 @@ class EOrdenes : AppCompatActivity() {
         setContentView(R.layout.activity_eordenes)
         cargarProductos()
         cargarRestaurantes()
-
-        val listaOrden=findViewById<ListView>(R.id.lv_lista_productos)
-        val spinerProducto = findViewById<Spinner>(R.id.sp_producto)
-        val spinerRestaurante = findViewById<Spinner>(R.id.sp_restaurantes)
-        val botonAgregar = findViewById<Button>(R.id.btn_anadir_lista_producto)
-        val cantidad = findViewById<EditText>(R.id.et_cantidad_producto)
+        BaseDeDatosMemoria.listaOrdenes.clear()
 
 
-
-        val adaptadorRestaurante= ArrayAdapter(
+        adaptadorRestaurante= ArrayAdapter(
             this,//Contexto
             android.R.layout.simple_spinner_item,//Layout (visual)
             BaseDeDatosMemoria.listaRestauantes// Arreglo
 
         )
-        val adaptadorProducto= ArrayAdapter(
+        adaptadorProducto= ArrayAdapter(
             this,//Contexto
             android.R.layout.simple_spinner_item,//Layout (visual)
             BaseDeDatosMemoria.listaProductos// Arreglo
 
         )
 
-        val adaptadorOrden= ArrayAdapter(
+        adaptadorOrden= ArrayAdapter(
             this,//Contexto
             android.R.layout.simple_list_item_1,//Layout (visual)
             BaseDeDatosMemoria.listaOrdenes// Arreglo
 
         )
+
+
+        val listaOrden=findViewById<ListView>(R.id.lv_lista_productos)
+        val spinerProducto = findViewById<Spinner>(R.id.sp_producto)
+        val spinerRestaurante = findViewById<Spinner>(R.id.sp_restaurantes)
+        val botonAgregar = findViewById<Button>(R.id.btn_anadir_lista_producto)
+        val cantidad = findViewById<EditText>(R.id.et_cantidad_producto)
 
 
 
@@ -64,6 +73,8 @@ class EOrdenes : AppCompatActivity() {
 
         adaptadorProducto.notifyDataSetChanged()
         adaptadorRestaurante.notifyDataSetChanged()
+        adaptadorOrden.notifyDataSetChanged()
+
 
 
         botonAgregar.setOnClickListener{
@@ -72,7 +83,6 @@ class EOrdenes : AppCompatActivity() {
                 spinerRestaurante.getSelectedItemPosition()!=-1&&
                 spinerProducto.getSelectedItemPosition()!=-1 ){
 
-                Log.i("s","${spinerProducto.getSelectedItemPosition()}")
 
                 BaseDeDatosMemoria.listaOrdenes.add(
                     OrdenFirebase(BaseDeDatosMemoria.listaProductos[spinerProducto.getSelectedItemPosition()].nombre,
@@ -83,19 +93,9 @@ class EOrdenes : AppCompatActivity() {
                 )
 
                 BaseDeDatosMemoria.listaProductos.removeAt(spinerProducto.getSelectedItemPosition())
-                val adaptadorProducto1= ArrayAdapter(
-                    this,//Contexto
-                    android.R.layout.simple_spinner_item,//Layout (visual)
-                    BaseDeDatosMemoria.listaProductos// Arreglo
-                )
-
-                val adaptadorOrden1= ArrayAdapter(
-                    this,//Contexto
-                    android.R.layout.simple_list_item_1,//Layout (visual)
-                    BaseDeDatosMemoria.listaOrdenes// Arreglo
-                )
-                listaOrden.adapter=adaptadorOrden1
-                spinerProducto.adapter=adaptadorProducto1
+                adaptadorProducto.notifyDataSetChanged()
+                adaptadorRestaurante.notifyDataSetChanged()
+                adaptadorOrden.notifyDataSetChanged()
 
 
             }else{
@@ -115,6 +115,7 @@ class EOrdenes : AppCompatActivity() {
 
 
     }
+
     fun cargarRestaurantes(){
         var lista= arrayListOf<RestauranteFirebase>()
         val db= Firebase.firestore
@@ -203,30 +204,14 @@ class EOrdenes : AppCompatActivity() {
                     BaseDeDatosMemoria.listaOrdenes[posicionItemSeleccionado].precio)
                 )
                 BaseDeDatosMemoria.listaOrdenes.removeAt(posicionItemSeleccionado)
-                val listaOrden=findViewById<ListView>(R.id.lv_lista_productos)
-                val spinerProducto = findViewById<Spinner>(R.id.sp_producto)
-                val adaptadorProducto= ArrayAdapter(
-                    this,//Contexto
-                    android.R.layout.simple_spinner_item,//Layout (visual)
-                    BaseDeDatosMemoria.listaProductos// Arreglo
-                )
-
-                val adaptadorOrden= ArrayAdapter(
-                    this,//Contexto
-                    android.R.layout.simple_list_item_1,//Layout (visual)
-                    BaseDeDatosMemoria.listaOrdenes// Arreglo
-                )
-                listaOrden.adapter=adaptadorOrden
-                spinerProducto.adapter=adaptadorProducto
+                adaptadorProducto.notifyDataSetChanged()
+                adaptadorRestaurante.notifyDataSetChanged()
+                adaptadorOrden.notifyDataSetChanged()
 
 
                 return true
 
             }
-
-
-
-
             else-> super.onContextItemSelected(item)
         }
     }
