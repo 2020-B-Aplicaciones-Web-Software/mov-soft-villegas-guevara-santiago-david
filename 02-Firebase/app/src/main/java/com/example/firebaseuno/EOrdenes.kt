@@ -21,22 +21,26 @@ class EOrdenes : AppCompatActivity() {
     lateinit var  adaptadorOrden: ArrayAdapter<OrdenFirebase>
 
 
-
-
-
-
-
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_eordenes)
-        cargarProductos()
+
         cargarRestaurantes()
         BaseDeDatosMemoria.listaOrdenes.clear()
+    }
+    fun calcularTotal(){
+        val precioTotal=findViewById<TextView>(R.id.tv_precioToral)
+        var textoPrecio=""
+        var calculoPrecio:Double=0.00
+        BaseDeDatosMemoria.listaOrdenes
+            .forEach {
+                calculoPrecio=calculoPrecio+(it.cantidad*it.precio)
+            }
+        textoPrecio="Precio total:"+String.format("%.2f", calculoPrecio)
+        precioTotal.text=textoPrecio
 
-
+    }
+    fun cargarInterfaz(){
         adaptadorRestaurante= ArrayAdapter(
             this,//Contexto
             android.R.layout.simple_spinner_item,//Layout (visual)
@@ -57,14 +61,11 @@ class EOrdenes : AppCompatActivity() {
 
         )
 
-
         val listaOrden=findViewById<ListView>(R.id.lv_lista_productos)
         val spinerProducto = findViewById<Spinner>(R.id.sp_producto)
         val spinerRestaurante = findViewById<Spinner>(R.id.sp_restaurantes)
         val botonAgregar = findViewById<Button>(R.id.btn_anadir_lista_producto)
         val cantidad = findViewById<EditText>(R.id.et_cantidad_producto)
-
-
 
         listaOrden.adapter=adaptadorOrden
         spinerProducto.adapter=adaptadorProducto
@@ -74,8 +75,6 @@ class EOrdenes : AppCompatActivity() {
         adaptadorProducto.notifyDataSetChanged()
         adaptadorRestaurante.notifyDataSetChanged()
         adaptadorOrden.notifyDataSetChanged()
-
-
 
         botonAgregar.setOnClickListener{
             if(cantidad.text.toString()!=""&&
@@ -97,23 +96,15 @@ class EOrdenes : AppCompatActivity() {
                 adaptadorRestaurante.notifyDataSetChanged()
                 adaptadorOrden.notifyDataSetChanged()
 
-
+                cantidad.text.clear()
+                calcularTotal()
             }else{
                 adaptadorProducto.notifyDataSetChanged()
                 adaptadorRestaurante.notifyDataSetChanged()
                 adaptadorOrden.notifyDataSetChanged()
 
             }
-
-
         }
-
-
-
-
-
-
-
     }
 
     fun cargarRestaurantes(){
@@ -133,7 +124,7 @@ class EOrdenes : AppCompatActivity() {
 
                     if (restauranteCargado != null) {
 
-                        BaseDeDatosMemoria.listaRestauantes.add(
+                        lista.add(
                             RestauranteFirebase(
                                 restauranteCargado.nombre
 
@@ -143,8 +134,11 @@ class EOrdenes : AppCompatActivity() {
                     }
 
                 }
+                BaseDeDatosMemoria.listaRestauantes=lista
+                cargarProductos()
+
             }
-        BaseDeDatosMemoria.listaRestauantes=lista
+
 
 
 
@@ -171,9 +165,12 @@ class EOrdenes : AppCompatActivity() {
                             )
                         )
                 }
-            }
-        BaseDeDatosMemoria.listaProductos=lista
 
+                BaseDeDatosMemoria.listaProductos=lista
+                cargarInterfaz()
+
+
+            }
 
     }
 
@@ -207,6 +204,9 @@ class EOrdenes : AppCompatActivity() {
                 adaptadorProducto.notifyDataSetChanged()
                 adaptadorRestaurante.notifyDataSetChanged()
                 adaptadorOrden.notifyDataSetChanged()
+                val cantidad = findViewById<EditText>(R.id.et_cantidad_producto)
+                cantidad.text.clear()
+                calcularTotal()
 
 
                 return true
