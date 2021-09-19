@@ -25,6 +25,15 @@ class MainActivity : AppCompatActivity() {
         val botonProducto = findViewById<Button>(R.id.btn_producto)
         val botonRestaurante = findViewById<Button>(R.id.btn_restaurante)
         val botonOrdenar= findViewById<Button>(R.id.btn_ordenar)
+        val botonMapa=findViewById<Button>(R.id.btn_ir_mapa)
+
+        botonMapa.setOnClickListener{
+            val intent=Intent(
+                this,
+                FMapsActivity::class.java
+            )
+            startActivity(intent)
+        }
 
         botonLogin.setOnClickListener {
             llamarLoginUsuario()
