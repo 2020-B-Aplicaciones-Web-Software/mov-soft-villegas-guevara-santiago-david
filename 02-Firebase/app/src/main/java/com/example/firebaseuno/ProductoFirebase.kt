@@ -7,6 +7,7 @@ import com.google.firebase.ktx.Firebase
 class ProductoFirebase(
     val nombre:String,
     val precio: Double,
+    val uid:String,
 
 ) {
     override fun toString(): String {

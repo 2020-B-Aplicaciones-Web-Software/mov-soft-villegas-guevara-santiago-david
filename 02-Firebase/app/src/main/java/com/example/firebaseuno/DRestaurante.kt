@@ -42,6 +42,9 @@ class DRestaurante : AppCompatActivity() {
 
         val nuevoRestaurante = hashMapOf<String,Any>(
             "nombre" to editTextNombre.text.toString(),
+            "calificacionPromedio" to 0.0,
+            "sumatoriaCalificaciones" to 0,
+            "usuariosCalicado" to 0,
 
             )
         val db= Firebase.firestore

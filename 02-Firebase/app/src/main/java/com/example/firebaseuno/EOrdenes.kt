@@ -1,11 +1,14 @@
 package com.example.firebaseuno
 
+import android.content.Intent
+import android.icu.text.SimpleDateFormat
+import android.icu.util.Calendar
 import android.os.Bundle
-import android.util.Log
 import android.view.ContextMenu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.firebaseuno.dto.FirestoreProductoDto
 import com.example.firebaseuno.dto.FirestoreRestauranteDto
@@ -18,7 +21,7 @@ class EOrdenes : AppCompatActivity() {
     var posicionItemSeleccionado=0
     lateinit var  adaptadorRestaurante: ArrayAdapter<RestauranteFirebase>
     lateinit var  adaptadorProducto: ArrayAdapter<ProductoFirebase>
-    lateinit var  adaptadorOrden: ArrayAdapter<OrdenFirebase>
+    lateinit var  adaptadorOrden: ArrayAdapter<ProductoOrdenFirebase>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +31,7 @@ class EOrdenes : AppCompatActivity() {
         cargarRestaurantes()
         BaseDeDatosMemoria.listaOrdenes.clear()
     }
-    fun calcularTotal(){
+    fun calcularTotal(): Double {
         val precioTotal=findViewById<TextView>(R.id.tv_precioToral)
         var textoPrecio=""
         var calculoPrecio:Double=0.00
@@ -38,6 +41,7 @@ class EOrdenes : AppCompatActivity() {
             }
         textoPrecio="Precio total:"+String.format("%.2f", calculoPrecio)
         precioTotal.text=textoPrecio
+        return calculoPrecio
 
     }
     fun cargarInterfaz(){
@@ -66,6 +70,7 @@ class EOrdenes : AppCompatActivity() {
         val spinerRestaurante = findViewById<Spinner>(R.id.sp_restaurantes)
         val botonAgregar = findViewById<Button>(R.id.btn_anadir_lista_producto)
         val cantidad = findViewById<EditText>(R.id.et_cantidad_producto)
+        val botonPerdir=findViewById<Button>(R.id.btn_completar_pedido)
 
         listaOrden.adapter=adaptadorOrden
         spinerProducto.adapter=adaptadorProducto
@@ -84,10 +89,11 @@ class EOrdenes : AppCompatActivity() {
 
 
                 BaseDeDatosMemoria.listaOrdenes.add(
-                    OrdenFirebase(BaseDeDatosMemoria.listaProductos[spinerProducto.getSelectedItemPosition()].nombre,
+                    ProductoOrdenFirebase(
+                        BaseDeDatosMemoria.listaProductos[spinerProducto.getSelectedItemPosition()].nombre,
                         BaseDeDatosMemoria.listaProductos[spinerProducto.getSelectedItemPosition()].precio,
                         cantidad.text.toString().toInt(),
-                        BaseDeDatosMemoria.listaRestauantes[spinerRestaurante.getSelectedItemPosition()].nombre
+                        BaseDeDatosMemoria.listaProductos[spinerProducto.getSelectedItemPosition()].uid,
                     )
                 )
 
@@ -105,6 +111,58 @@ class EOrdenes : AppCompatActivity() {
 
             }
         }
+
+        botonPerdir.setOnClickListener{
+            if(BaseDeDatosMemoria.listaOrdenes.isNotEmpty()) {
+
+                val restaurante = RestauranteOrdenFirebase(
+                    BaseDeDatosMemoria.listaRestauantes[spinerRestaurante.getSelectedItemPosition()].nombre,
+                    BaseDeDatosMemoria.listaRestauantes[spinerRestaurante.getSelectedItemPosition()].calificacionPromedio,
+                    BaseDeDatosMemoria.listaRestauantes[spinerRestaurante.getSelectedItemPosition()].uid
+
+                )
+                val c: Calendar = Calendar.getInstance()
+                val sdf = SimpleDateFormat("dd--MM-yyy HH:mm")
+                val strDate: String = sdf.format(c.getTime())
+                val nuevaOrden = hashMapOf<String, Any>(
+                    "fechaPedido" to strDate,
+                    "total" to calcularTotal(),
+                    "calicacion" to "Sin calificar",
+                    "estado" to "Por recibir",
+                    "restaurante" to restaurante,
+                    "productos" to BaseDeDatosMemoria.listaOrdenes
+
+                )
+                val db = Firebase.firestore
+                val referencia = db.collection("orden")
+
+
+                referencia
+                    .add(nuevaOrden)
+                    .addOnSuccessListener {
+                        cargarRestaurantes()
+                        cargarProductos()
+                        BaseDeDatosMemoria.listaOrdenes.clear()
+                        adaptadorProducto.notifyDataSetChanged()
+                        adaptadorRestaurante.notifyDataSetChanged()
+                        adaptadorOrden.notifyDataSetChanged()
+                        val precioTotal=findViewById<TextView>(R.id.tv_precioToral)
+                        precioTotal.text="Pedido Realizado"
+
+
+
+                    }
+                    .addOnFailureListener {}
+            }else{
+                val precioTotal=findViewById<TextView>(R.id.tv_precioToral)
+                precioTotal.text="Agregue productos para realizar el pedido"
+
+
+
+            }
+        }
+
+
     }
 
     fun cargarRestaurantes(){
@@ -126,7 +184,11 @@ class EOrdenes : AppCompatActivity() {
 
                         lista.add(
                             RestauranteFirebase(
-                                restauranteCargado.nombre
+                                restauranteCargado.nombre,
+                                restauranteCargado.calificacionPromedio,
+                                restauranteCargado.sumatoriaCalificaciones,
+                                restauranteCargado.usuariosCalicado,
+                                restaurante.id,
 
                             )
                         )
@@ -161,7 +223,8 @@ class EOrdenes : AppCompatActivity() {
                     lista.add(
                             ProductoFirebase(
                                 productoCargado.nombre,
-                                productoCargado.precio.toDouble()
+                                productoCargado.precio.toDouble(),
+                                producto.id,
                             )
                         )
                 }
@@ -198,7 +261,8 @@ class EOrdenes : AppCompatActivity() {
 
                 BaseDeDatosMemoria.listaProductos.add(ProductoFirebase(
                     BaseDeDatosMemoria.listaOrdenes[posicionItemSeleccionado].nombreProducto,
-                    BaseDeDatosMemoria.listaOrdenes[posicionItemSeleccionado].precio)
+                    BaseDeDatosMemoria.listaOrdenes[posicionItemSeleccionado].precio,
+                    BaseDeDatosMemoria.listaOrdenes[posicionItemSeleccionado].uid)
                 )
                 BaseDeDatosMemoria.listaOrdenes.removeAt(posicionItemSeleccionado)
                 adaptadorProducto.notifyDataSetChanged()
