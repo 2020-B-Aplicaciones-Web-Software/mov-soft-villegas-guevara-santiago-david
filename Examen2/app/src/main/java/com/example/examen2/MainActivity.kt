@@ -2,6 +2,7 @@ package com.example.examen2
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.ContextMenu
 import android.view.MenuItem
 import android.view.View
@@ -100,9 +101,9 @@ class MainActivity : AppCompatActivity() {
                         if (selecccion != null) {
                             val db= Firebase.firestore
 
-                            val referenciaRestaurante=db
+                            val referenciasEmpresa=db
                                 .collection("EmpresaDesarroladora").document(selecccion)
-                            referenciaRestaurante.delete()
+                            referenciasEmpresa.delete()
                                 .addOnSuccessListener {
                                     listaEmpresas.removeAt(posicionItemSeleccionado)
                                     adaptadorEmpresa.notifyDataSetChanged()
@@ -168,6 +169,7 @@ class MainActivity : AppCompatActivity() {
             .get()
             .addOnSuccessListener { empresas ->
                 for (empresa in empresas) {
+
 
                     val empresaCargada = empresa.toObject(EmpresaDto::class.java)
 

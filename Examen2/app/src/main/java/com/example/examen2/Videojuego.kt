@@ -46,7 +46,7 @@ class Videojuego (
         return "Uid: $id \n" +
                 "Nombre: $nombre \n" +
                 "Recaudación: $recaudacion \n" +
-                "Fecha de salida: ${sdf.format(fechaSalida)} \n" +
+                "Fecha de salida: ${fechaSalida} \n" +
                 "Género: $generoPrincipal \n" +
                 "Multijugador: $multijugador \n"+
                 "Logitud: $longitud \n" +

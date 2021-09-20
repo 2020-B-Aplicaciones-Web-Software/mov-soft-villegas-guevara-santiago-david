@@ -90,9 +90,12 @@ class EditarEmpresa : AppCompatActivity() {
                                 ))
 
 
+                            }.addOnSuccessListener {
+                                abrirActividad(MainActivity::class.java)
+
                             }
                         }
-                        abrirActividad(MainActivity::class.java)
+
 
                     }
 

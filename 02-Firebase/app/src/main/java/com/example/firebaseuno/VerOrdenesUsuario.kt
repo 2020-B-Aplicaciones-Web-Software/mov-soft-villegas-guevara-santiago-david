@@ -62,8 +62,8 @@ class VerOrdenesUsuario : AppCompatActivity() {
                                 it["calificacion"].toString(),
                                 it["estado"].toString(),
                                 RestauranteOrdenFirebase(
-                                    it["restaurante.nombre"].toString(),
-                                    it["restaurante.califacionPromedio"].toString().toDouble(),
+                                    it["restaurare"].toString(),
+                                    it["restaurante.califante.nombcionPromedio"].toString().toDouble(),
                                     it["restaurante.uid"].toString()
                                 ),
                                 listaProductos,

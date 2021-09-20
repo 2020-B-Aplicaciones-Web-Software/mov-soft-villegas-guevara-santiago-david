@@ -3,16 +3,15 @@ package com.example.examen2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.ContextMenu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import com.example.examen2.DTO.EmpresaDto
-import com.example.examen2.DTO.VideojuegoDto
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import java.util.*
+
 
 class ListaVideojuegos : AppCompatActivity() {
 
@@ -83,20 +82,19 @@ class ListaVideojuegos : AppCompatActivity() {
             .addOnSuccessListener { videojuegos ->
                 for (videojuego in videojuegos) {
 
-                    val juegoCargado = videojuego.toObject(VideojuegoDto::class.java)
 
-
-                    if (juegoCargado != null) {
+                    if (videojuego != null) {
 
                         listaVideojuego.add(
                             Videojuego(videojuego.id,
-                                juegoCargado.nombre,
-                                juegoCargado.recaudacion,
-                                juegoCargado.fechaSalida,
-                                juegoCargado.generoPrincipal,
-                                juegoCargado.multijugador,
-                                juegoCargado.longitud,
-                                juegoCargado.latitud)
+                                videojuego["nombre"].toString(),
+                                videojuego["recaudacion"].toString().toDouble(),
+                                videojuego["fechaSalida"].toString(),
+                                videojuego["generoPrincipal"].toString(),
+                                videojuego["multijugador"].toString().toBoolean(),
+                                videojuego["longitud"].toString().toDouble(),
+                                videojuego["latitud"].toString().toDouble(),
+                            )
                         )
 
                     }
@@ -124,6 +122,8 @@ class ListaVideojuegos : AppCompatActivity() {
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
         return when(item?.itemId){
+
+
             //EDITAR
             R.id.Item_VEditar->{
                 val empresa=intent.getParcelableExtra<EmpresaDesarrolladora>("Empresa")
@@ -141,6 +141,19 @@ class ListaVideojuegos : AppCompatActivity() {
 
                 return true
             }
+            //MAPA
+            R.id.Item_VMapa->{
+                val empresa=intent.getParcelableExtra<EmpresaDesarrolladora>("Empresa")
+                if (empresa != null) {
+                    abrirActividadConParametrosJuego(
+                        MapaVideojuego::class.java,
+                        listaVideojuego[posicionItemSeleccionado],
+                        empresa
+
+                    )
+                }
+                return true
+            }
             //ELIMINAR
             R.id.Item_VEliminar->{
                 val builder= AlertDialog.Builder(this)
@@ -153,6 +166,17 @@ class ListaVideojuegos : AppCompatActivity() {
                     {dialog, which->
                         val selecccion: String? =listaVideojuego[posicionItemSeleccionado].id
                         if (selecccion != null) {
+                            val db= Firebase.firestore
+
+                            val referenciaJuego=db
+                                .collection("EmpresaDesarroladora").document(empresa.id!!)
+                                .collection("Videojuego").document(selecccion)
+                            referenciaJuego.delete()
+                                .addOnSuccessListener {
+                                    listaVideojuego.removeAt(posicionItemSeleccionado)
+                                    adaptadorJuego.notifyDataSetChanged()
+                                }
+                                .addOnFailureListener{}
 
 
                         }

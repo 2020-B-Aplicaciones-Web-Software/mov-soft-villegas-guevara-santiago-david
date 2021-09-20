@@ -73,8 +73,8 @@ class CrearVideojuego : AppCompatActivity() {
                                 "fechaSalida" to txtFecha.getText().toString(),
                                 "generoPrincipal" to txtGenero.getText().toString(),
                                 "multijugador" to txtMultijugador.getText().toString(),
-                                "longitud" to textLongitud.getText().toString(),
-                                "latitud" to textLatitud.getText().toString()
+                                "longitud" to textLongitud.getText().toString().toDouble(),
+                                "latitud" to textLatitud.getText().toString().toDouble(),
                             )
                             val db = Firebase.firestore
                             val referencia = db.collection("EmpresaDesarroladora").document(empresa.id!!)
