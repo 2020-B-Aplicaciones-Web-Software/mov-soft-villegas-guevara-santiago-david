@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.examen02
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,14 +11,15 @@ import android.widget.Button
 import android.widget.ListView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class MainActivity : AppCompatActivity() {
     val CODIGO_RESPUESTA_INTENT_EXPLICITO=401
     var posicionItemSeleccionado=0
-    val instanciaEmpresaBDD=ESqliteHelperEmpresaDesarrolladora(this)
-    val instanciaVideojuegiBDD=ESqliteHelperVideojuego(this)
     var listaEmpresas= arrayListOf<EmpresaDesarrolladora>()
+    lateinit var  adaptadorEmpresa: ArrayAdapter<EmpresaDesarrolladora>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,20 +29,7 @@ class MainActivity : AppCompatActivity() {
         val botonCrearEmpresa = findViewById<Button>(
             R.id.btn_crearEmpresa
         )
-
-
-
-        listaEmpresas=instanciaEmpresaBDD.consultarEmpresas()
-        val adaptador= ArrayAdapter(
-            this,//Contexto
-            android.R.layout.simple_list_item_1,//Layout (visual)
-            listaEmpresas// Arreglo
-
-        )
-        val listViewEmpresa= findViewById<ListView>(R.id.list_Empresas)
-        listViewEmpresa.adapter=adaptador
-        registerForContextMenu(listViewEmpresa)
-
+        cargarEmpresas()
         botonCrearEmpresa.setOnClickListener{
             abrirActividad(
                 CrearEmpresa::class.java
@@ -49,7 +37,19 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+    fun cargarInterfaz(){
 
+
+        adaptadorEmpresa= ArrayAdapter(
+            this,//Contexto
+            android.R.layout.simple_list_item_1,//Layout (visual)
+            listaEmpresas// Arreglo
+
+        )
+        val listViewEmpresa= findViewById<ListView>(R.id.list_Empresas)
+        listViewEmpresa.adapter=adaptadorEmpresa
+        registerForContextMenu(listViewEmpresa)
 
 
 
@@ -97,19 +97,10 @@ class MainActivity : AppCompatActivity() {
                     {dialog, which->
                         val selecccion: Int? =listaEmpresas[posicionItemSeleccionado].id
                         if (selecccion != null) {
-                            instanciaEmpresaBDD.eliminarEmpresaFormulario(selecccion)
-                            instanciaVideojuegiBDD.eliminarVideojuegosDeEmpresa(selecccion)
-                        }
-                        listaEmpresas=instanciaEmpresaBDD.consultarEmpresas()
-                        //abrirActividad(MainActivity::class.java)
-                        val adaptador= ArrayAdapter(
-                            this,//Contexto
-                            android.R.layout.simple_list_item_1,//Layout (visual)
-                            listaEmpresas// Arreglo
 
-                        )
-                        val listViewEmpresa= findViewById<ListView>(R.id.list_Empresas)
-                        listViewEmpresa.adapter=adaptador
+                        }
+
+
 
                     }
                 )
@@ -153,5 +144,39 @@ class MainActivity : AppCompatActivity() {
             clase
         )
         startActivity(intentExplicito)
+    }
+
+    fun cargarEmpresas(){
+
+        val db= Firebase.firestore
+
+
+        val referenciaRestaurante=db
+            .collection("EmpresaDesarroladora")
+        referenciaRestaurante
+            .get()
+            .addOnSuccessListener { empresas ->
+                for (empresa in empresas) {
+
+                    val empresaCargada = empresa.toObject(EmpresaDesarrolladora::class.java)
+
+
+                    if (empresaCargada != null) {
+
+                        listaEmpresas.add(
+                            empresaCargada
+                        )
+
+                    }
+
+                }
+
+                cargarInterfaz()
+            }
+
+
+
+
+
     }
 }

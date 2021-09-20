@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "51930859589",
+    "project_id": "movsoft-2021a-villegue-exam",
+    "storage_bucket": "movsoft-2021a-villegue-exam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51930859589:android:b51f0ab2568943d77b3b2c",
+        "android_client_info": {
+          "package_name": "com.example.examen02"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "51930859589-p29v3a12o573fqcm0n9pr22vphrigbf6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmkXYwxEnDZmreCYZXWLAfHxPDNXmsA6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "51930859589-p29v3a12o573fqcm0n9pr22vphrigbf6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51930859589:android:70b3230b698ec6847b3b2c",
+        "android_client_info": {
+          "package_name": "com.example.examen2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "51930859589-p29v3a12o573fqcm0n9pr22vphrigbf6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmkXYwxEnDZmreCYZXWLAfHxPDNXmsA6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "51930859589-p29v3a12o573fqcm0n9pr22vphrigbf6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

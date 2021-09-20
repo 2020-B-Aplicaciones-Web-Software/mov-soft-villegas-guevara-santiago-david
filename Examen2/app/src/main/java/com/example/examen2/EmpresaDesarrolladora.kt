@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.examen02
 
 import android.os.Parcel
 import android.os.Parcelable
@@ -10,16 +10,16 @@ class EmpresaDesarrolladora(
     var id: Int?,
     var nombre: String?,
     var numeroTrabajadores: Int?,
-    var fechaFundacion: Date?,
+    var fechaFundacion: String?,
     var pais: String?,
     var independiente: Boolean?,
 
-):Parcelable {
+    ):Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readValue(Int::class.java.classLoader) as? Int,
         parcel.readString(),
         parcel.readValue(Int::class.java.classLoader) as? Int,
-        parcel.readValue(Date::class.java.classLoader) as? Date,
+        parcel.readString(),
         parcel.readString(),
         parcel.readValue(Boolean::class.java.classLoader) as? Boolean
     ) {
@@ -29,23 +29,13 @@ class EmpresaDesarrolladora(
         parcel.writeValue(id)
         parcel.writeString(nombre)
         parcel.writeValue(numeroTrabajadores)
-        parcel.writeValue(fechaFundacion)
+        parcel.writeString(fechaFundacion)
         parcel.writeString(pais)
         parcel.writeValue(independiente)
     }
 
     override fun describeContents(): Int {
         return 0
-    }
-
-    override fun toString(): String {
-        val sdf = SimpleDateFormat("dd/MM/yyyy")
-
-        return "Nombre: $nombre \n" +
-                "Número de trabajadores: $numeroTrabajadores\n" +
-                "Fecha de fundación: ${sdf.format(fechaFundacion)}\n" +
-                "País: $pais\n" +
-                "Independiente: $independiente"
     }
 
     companion object CREATOR : Parcelable.Creator<EmpresaDesarrolladora> {
@@ -56,6 +46,15 @@ class EmpresaDesarrolladora(
         override fun newArray(size: Int): Array<EmpresaDesarrolladora?> {
             return arrayOfNulls(size)
         }
+    }
+    override fun toString(): String {
+        val sdf = SimpleDateFormat("dd/MM/yyyy")
+
+        return "Nombre: $nombre \n" +
+                "Número de trabajadores: $numeroTrabajadores\n" +
+                "Fecha de fundación: $fechaFundacion\n" +
+                "País: $pais\n" +
+                "Independiente: $independiente"
     }
 
 
