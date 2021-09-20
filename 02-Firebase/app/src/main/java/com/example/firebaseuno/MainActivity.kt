@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         val botonRestaurante = findViewById<Button>(R.id.btn_restaurante)
         val botonOrdenar= findViewById<Button>(R.id.btn_ordenar)
         val botonMapa=findViewById<Button>(R.id.btn_ir_mapa)
+        val botonVerOrdenesRestaurante=findViewById<Button>(R.id.btn_verPedidosRestaurante)
+        val botonVerOrdenes=findViewById<Button>(R.id.btn_verPedidos)
 
         botonMapa.setOnClickListener{
             val intent=Intent(
@@ -49,6 +51,22 @@ class MainActivity : AppCompatActivity() {
             val intent=Intent(
                 this,
                 DRestaurante::class.java
+            )
+            startActivity(intent)
+        }
+
+        botonVerOrdenesRestaurante.setOnClickListener{
+            val intent=Intent(
+                this,
+                VerOrdenesRestaurante::class.java
+            )
+            startActivity(intent)
+        }
+
+        botonVerOrdenes.setOnClickListener{
+            val intent=Intent(
+                this,
+                VerOrdenesUsuario::class.java
             )
             startActivity(intent)
         }
@@ -181,6 +199,8 @@ class MainActivity : AppCompatActivity() {
         val botonProducto= findViewById<Button>(R.id.btn_producto)
         val botonRestaurante= findViewById<Button>(R.id.btn_restaurante)
         val botonOrdenes= findViewById<Button>(R.id.btn_ordenar)
+        val botonVerOrdenesRestaurante=findViewById<Button>(R.id.btn_verPedidosRestaurante)
+        val botonVerOrdenes=findViewById<Button>(R.id.btn_verPedidos)
         val textViewBienvenida=findViewById<TextView>(R.id.tv_bienvenida)
 
         if(BAuthUsuario.usuario!=null){
@@ -190,6 +210,8 @@ class MainActivity : AppCompatActivity() {
             botonProducto.visibility=View.VISIBLE
             botonRestaurante.visibility=View.VISIBLE
             botonOrdenes.visibility=View.VISIBLE
+            botonVerOrdenesRestaurante.visibility=View.VISIBLE
+            botonVerOrdenes.visibility=View.VISIBLE
         }else{
             textViewBienvenida.text="Ingresa al aplicativo"
             botonLogin.visibility=View.VISIBLE
@@ -197,6 +219,9 @@ class MainActivity : AppCompatActivity() {
             botonProducto.visibility=View.INVISIBLE
             botonRestaurante.visibility=View.INVISIBLE
             botonOrdenes.visibility=View.INVISIBLE
+            botonVerOrdenesRestaurante.visibility=View.INVISIBLE
+            botonVerOrdenes.visibility=View.INVISIBLE
+
         }
     }
     fun solicitarSalirDelAplicativo(){

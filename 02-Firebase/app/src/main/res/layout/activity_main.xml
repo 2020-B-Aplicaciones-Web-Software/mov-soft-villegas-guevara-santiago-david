@@ -35,9 +35,9 @@
         android:layout_marginTop="16dp"
         android:text="Salir"
         android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="@+id/button3"
-        app:layout_constraintStart_toStartOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_verPedidos"
+        app:layout_constraintStart_toStartOf="@+id/btn_verPedidos"
+        app:layout_constraintTop_toBottomOf="@+id/btn_verPedidos" />
 
     <Button
         android:id="@+id/btn_producto"
@@ -87,24 +87,26 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_ordenar" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_verPedidosRestaurante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Ver pedidos Restaurante"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/btn_ir_mapa"
         app:layout_constraintStart_toStartOf="@+id/btn_ir_mapa"
         app:layout_constraintTop_toBottomOf="@+id/btn_ir_mapa" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_verPedidos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Ver pedidos"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/btn_verPedidosRestaurante"
         app:layout_constraintHorizontal_bias="0.517"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintStart_toStartOf="@+id/btn_verPedidosRestaurante"
+        app:layout_constraintTop_toBottomOf="@+id/btn_verPedidosRestaurante" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
