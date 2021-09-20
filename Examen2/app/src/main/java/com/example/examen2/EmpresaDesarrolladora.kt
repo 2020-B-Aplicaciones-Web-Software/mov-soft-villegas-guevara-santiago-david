@@ -1,13 +1,13 @@
-package com.example.examen02
+package com.example.examen2
 
 import android.os.Parcel
 import android.os.Parcelable
 import java.text.SimpleDateFormat
-import java.util.*
+
 
 
 class EmpresaDesarrolladora(
-    var id: Int?,
+    var id: String?,
     var nombre: String?,
     var numeroTrabajadores: Int?,
     var fechaFundacion: String?,
@@ -16,7 +16,7 @@ class EmpresaDesarrolladora(
 
     ):Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readValue(Int::class.java.classLoader) as? Int,
+        parcel.readString(),
         parcel.readString(),
         parcel.readValue(Int::class.java.classLoader) as? Int,
         parcel.readString(),
@@ -26,7 +26,7 @@ class EmpresaDesarrolladora(
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeValue(id)
+        parcel.writeString(id)
         parcel.writeString(nombre)
         parcel.writeValue(numeroTrabajadores)
         parcel.writeString(fechaFundacion)
@@ -37,6 +37,16 @@ class EmpresaDesarrolladora(
     override fun describeContents(): Int {
         return 0
     }
+    override fun toString(): String {
+
+
+        return "Uid: $id \n" +
+                "Nombre: $nombre \n" +
+                "Número de trabajadores: $numeroTrabajadores\n" +
+                "Fecha de fundación: $fechaFundacion\n" +
+                "País: $pais\n" +
+                "Independiente: $independiente"
+    }
 
     companion object CREATOR : Parcelable.Creator<EmpresaDesarrolladora> {
         override fun createFromParcel(parcel: Parcel): EmpresaDesarrolladora {
@@ -46,15 +56,6 @@ class EmpresaDesarrolladora(
         override fun newArray(size: Int): Array<EmpresaDesarrolladora?> {
             return arrayOfNulls(size)
         }
-    }
-    override fun toString(): String {
-        val sdf = SimpleDateFormat("dd/MM/yyyy")
-
-        return "Nombre: $nombre \n" +
-                "Número de trabajadores: $numeroTrabajadores\n" +
-                "Fecha de fundación: $fechaFundacion\n" +
-                "País: $pais\n" +
-                "Independiente: $independiente"
     }
 
 

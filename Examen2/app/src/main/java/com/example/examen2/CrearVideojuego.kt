@@ -1,7 +1,8 @@
-package com.example.examen02
+package com.example.examen2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+
 
 class CrearVideojuego : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

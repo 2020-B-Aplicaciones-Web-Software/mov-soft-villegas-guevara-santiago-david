@@ -1,4 +1,4 @@
-package com.example.examen02
+package com.example.examen2
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.ListView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.examen2.DTO.EmpresaDto
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -95,8 +96,18 @@ class MainActivity : AppCompatActivity() {
                 builder.setPositiveButton(
                     "Si",
                     {dialog, which->
-                        val selecccion: Int? =listaEmpresas[posicionItemSeleccionado].id
+                        val selecccion: String? =listaEmpresas[posicionItemSeleccionado].id
                         if (selecccion != null) {
+                            val db= Firebase.firestore
+
+                            val referenciaRestaurante=db
+                                .collection("EmpresaDesarroladora").document(selecccion)
+                            referenciaRestaurante.delete()
+                                .addOnSuccessListener {
+                                    listaEmpresas.removeAt(posicionItemSeleccionado)
+                                    adaptadorEmpresa.notifyDataSetChanged()
+                                }
+                                .addOnFailureListener{}
 
                         }
 
@@ -151,20 +162,25 @@ class MainActivity : AppCompatActivity() {
         val db= Firebase.firestore
 
 
-        val referenciaRestaurante=db
+        val referenciaEmpresa=db
             .collection("EmpresaDesarroladora")
-        referenciaRestaurante
+        referenciaEmpresa
             .get()
             .addOnSuccessListener { empresas ->
                 for (empresa in empresas) {
 
-                    val empresaCargada = empresa.toObject(EmpresaDesarrolladora::class.java)
+                    val empresaCargada = empresa.toObject(EmpresaDto::class.java)
 
 
                     if (empresaCargada != null) {
 
                         listaEmpresas.add(
-                            empresaCargada
+                            EmpresaDesarrolladora(empresa.id,
+                            empresaCargada.nombre,
+                            empresaCargada.numeroTrabajadores,
+                            empresaCargada.fechaFundacion,
+                            empresaCargada.pais,
+                            empresaCargada.independiente)
                         )
 
                     }

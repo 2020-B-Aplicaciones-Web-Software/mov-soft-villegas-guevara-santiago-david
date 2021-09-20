@@ -1,4 +1,4 @@
-package com.example.examen02
+package com.example.examen2
 
 import java.util.regex.Matcher
 import java.util.regex.Pattern

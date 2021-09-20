@@ -1,11 +1,10 @@
-package com.example.examen02
-
+package com.example.examen2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import com.example.examen2.R
+
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -65,7 +64,7 @@ class CrearEmpresa : AppCompatActivity() {
                             "fechaFundacion" to txtFecha.getText().toString(),
                             "pais" to txtPais.getText().toString(),
                             "independiente" to txtIndependiente.getText().toString().toBoolean()
-                            )
+                        )
                         val db = Firebase.firestore
                         val referencia = db.collection("EmpresaDesarroladora")
                         referencia
