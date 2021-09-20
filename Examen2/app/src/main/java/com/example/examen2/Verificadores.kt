@@ -14,6 +14,34 @@ class Verificadores {
             }
             return resultado
         }
+        fun validarLongitud(number:String):Boolean{
+
+            try {
+                val numero:Double=number.toDouble()
+                if(numero>=-180 && numero<=180){
+                    return true
+                }
+
+            } catch (nfe: NumberFormatException) {
+                return false
+
+            }
+            return false
+        }
+
+        fun validarLatitud(number:String):Boolean{
+            try {
+                val numero:Double=number.toDouble()
+                if(numero>=-90 && numero<=90){
+                    return true
+                }
+
+            } catch (nfe: NumberFormatException) {
+                return false
+
+            }
+            return false
+        }
 
         fun validadorStrings(cadena: String?): Boolean {
             var resultado = false

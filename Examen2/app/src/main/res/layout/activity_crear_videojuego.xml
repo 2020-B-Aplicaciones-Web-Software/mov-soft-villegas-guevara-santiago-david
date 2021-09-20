@@ -5,28 +5,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CrearVideojuego">
+
     <EditText
         android:id="@+id/editText_multijugador"
         android:layout_width="179dp"
         android:layout_height="53dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.383"
+        app:layout_constraintHorizontal_bias="0.341"
         app:layout_constraintStart_toEndOf="@+id/textView_multijugador"
         app:layout_constraintTop_toBottomOf="@+id/editText_genero" />
+
+    <EditText
+        android:id="@+id/editText_longitud"
+        android:layout_width="179dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/editText_multijugador"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/editText_multijugador"
+        app:layout_constraintTop_toBottomOf="@+id/editText_multijugador" />
+
+    <EditText
+        android:id="@+id/editText_latitud"
+        android:layout_width="179dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/editText_longitud"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/editText_longitud"
+        app:layout_constraintTop_toBottomOf="@+id/editText_longitud" />
 
     <TextView
         android:id="@+id/textView_nombreVideojuego"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="32dp"
         android:text="Nombre:"
         app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.172"
+        app:layout_constraintHorizontal_bias="0.168"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,11 +60,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="488dp"
+        android:layout_marginTop="356dp"
         android:text="Multijugador:"
         app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.207"
+        app:layout_constraintHorizontal_bias="0.182"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_longitud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="420dp"
+        android:text="Longitud:"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_latitud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="496dp"
+        android:text="Latitud:"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,11 +99,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="392dp"
+        android:layout_marginTop="272dp"
         android:text="Género:"
         app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.172"
+        app:layout_constraintHorizontal_bias="0.165"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,11 +112,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="296dp"
+        android:layout_marginTop="176dp"
         android:text="Fecha de salida:"
         app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.214"
+        app:layout_constraintHorizontal_bias="0.193"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,11 +125,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="88dp"
         android:text="Recaudación:"
         app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.201"
+        app:layout_constraintHorizontal_bias="0.183"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -86,11 +137,11 @@
         android:id="@+id/editText_nombreVideojuego"
         android:layout_width="215dp"
         android:layout_height="54dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.543"
+        app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toEndOf="@+id/textView_nombreVideojuego"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -98,7 +149,7 @@
         android:id="@+id/editText_recaudacion"
         android:layout_width="151dp"
         android:layout_height="41dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="68dp"
         android:ems="10"
         android:inputType="textPersonName|numberDecimal"
@@ -110,11 +161,11 @@
         android:layout_width="177dp"
         android:layout_height="60dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.162"
+        app:layout_constraintHorizontal_bias="0.159"
         app:layout_constraintStart_toEndOf="@+id/textView_fechaSalida"
         app:layout_constraintTop_toBottomOf="@+id/editText_recaudacion" />
 
@@ -126,7 +177,6 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toEndOf="@+id/textView_genero"
         app:layout_constraintTop_toBottomOf="@+id/editText_FechaSalida" />
 
