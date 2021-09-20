@@ -6,4 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".VerOrdenesUsuario">
 
+    <Button
+        android:id="@+id/btn_cargar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Cargar más"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/lv_lista_productosUsuario"
+        app:layout_constraintStart_toStartOf="@+id/lv_lista_productosUsuario"
+        app:layout_constraintTop_toBottomOf="@+id/lv_lista_productosUsuario" />
+
+    <ListView
+        android:id="@+id/lv_lista_productosUsuario"
+        android:layout_width="345dp"
+        android:layout_height="602dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

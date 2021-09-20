@@ -2,8 +2,48 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btn_filtrarOrdenes"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".VerOrdenesRestaurante">
 
+    <Spinner
+        android:id="@+id/sp_restaurantesView"
+        android:layout_width="348dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_frilto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="FILTRAR ORDENES"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/sp_filtro"
+        app:layout_constraintStart_toStartOf="@+id/sp_filtro"
+        app:layout_constraintTop_toBottomOf="@+id/sp_filtro" />
+
+    <Spinner
+        android:id="@+id/sp_filtro"
+        android:layout_width="288dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/lv_lista_productosRestaurante"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="@+id/lv_lista_productosRestaurante"
+        app:layout_constraintTop_toBottomOf="@+id/lv_lista_productosRestaurante" />
+
+    <ListView
+        android:id="@+id/lv_lista_productosRestaurante"
+        android:layout_width="323dp"
+        android:layout_height="415dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="@+id/sp_restaurantesView"
+        app:layout_constraintStart_toStartOf="@+id/sp_restaurantesView"
+        app:layout_constraintTop_toBottomOf="@+id/sp_restaurantesView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

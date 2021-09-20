@@ -11,7 +11,7 @@ class ProductoFirebase(
 
 ) {
     override fun toString(): String {
-        return "${nombre}"
+        return "${nombre} "
     }
 
 

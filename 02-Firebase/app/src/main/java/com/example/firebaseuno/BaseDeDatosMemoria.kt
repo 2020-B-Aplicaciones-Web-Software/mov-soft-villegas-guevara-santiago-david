@@ -5,6 +5,7 @@ class BaseDeDatosMemoria {
         var listaProductos= arrayListOf<ProductoFirebase>()
         var listaRestauantes= arrayListOf<RestauranteFirebase>()
         var listaOrdenes=arrayListOf<ProductoOrdenFirebase>()
+        var listaPedido=arrayListOf<OrdenFirebase>()
 
 
     }

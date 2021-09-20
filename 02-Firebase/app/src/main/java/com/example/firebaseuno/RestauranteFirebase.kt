@@ -9,7 +9,7 @@ class RestauranteFirebase(
 
 ) {
     override fun toString(): String {
-        return "${nombre}"
+        return "${nombre} "
     }
 
 }

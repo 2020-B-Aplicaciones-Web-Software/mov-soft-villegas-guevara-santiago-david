@@ -127,10 +127,11 @@ class EOrdenes : AppCompatActivity() {
                 val nuevaOrden = hashMapOf<String, Any>(
                     "fechaPedido" to strDate,
                     "total" to calcularTotal(),
-                    "calicacion" to "Sin calificar",
+                    "calificacion" to "Sin calificar",
                     "estado" to "Por recibir",
                     "restaurante" to restaurante,
-                    "productos" to BaseDeDatosMemoria.listaOrdenes
+                    "productos" to BaseDeDatosMemoria.listaOrdenes,
+                    "usuario" to BAuthUsuario.usuario!!.email,
 
                 )
                 val db = Firebase.firestore
