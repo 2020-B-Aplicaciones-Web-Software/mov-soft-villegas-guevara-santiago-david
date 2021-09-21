@@ -43,8 +43,7 @@ class Videojuego (
     }
     override fun toString(): String {
         val sdf = SimpleDateFormat("dd/MM/yyyy")
-        return "Uid: $id \n" +
-                "Nombre: $nombre \n" +
+        return  "Nombre: $nombre \n" +
                 "Recaudación: $recaudacion \n" +
                 "Fecha de salida: ${fechaSalida} \n" +
                 "Género: $generoPrincipal \n" +

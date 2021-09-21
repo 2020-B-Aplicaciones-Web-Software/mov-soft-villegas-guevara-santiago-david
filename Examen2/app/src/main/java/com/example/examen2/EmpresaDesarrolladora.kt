@@ -40,8 +40,7 @@ class EmpresaDesarrolladora(
     override fun toString(): String {
 
 
-        return "Uid: $id \n" +
-                "Nombre: $nombre \n" +
+        return  "Nombre: $nombre \n" +
                 "Número de trabajadores: $numeroTrabajadores\n" +
                 "Fecha de fundación: $fechaFundacion\n" +
                 "País: $pais\n" +
