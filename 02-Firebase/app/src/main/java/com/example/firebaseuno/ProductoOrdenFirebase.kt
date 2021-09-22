@@ -9,7 +9,7 @@ class ProductoOrdenFirebase(
 ) {
 
     override fun toString(): String {
-        return "\nNombre Producto: $nombreProducto\nPrecio" +
-                " Unitario: $precio\nCantidad:$cantidad\nPrecio Total: ${cantidad*precio} "
+        return "\n(Nombre Producto: $nombreProducto\nPrecio" +
+                " Unitario: $precio\nCantidad:$cantidad\nPrecio Total: ${cantidad*precio}) "
     }
 }

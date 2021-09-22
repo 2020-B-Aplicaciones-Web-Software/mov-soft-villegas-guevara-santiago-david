@@ -15,6 +15,6 @@ class OrdenFirebase(
 ) {
 
     override fun toString(): String {
-        return "\n Orden:(\nUsuario='$usuario'\nFecha del Pedido='$fechaPedido', \nValor total=$total, \nCalificación='$calificacion', \nEstado='$estado', $restaurante, \nProductos:$productos)"
+        return "Orden:\nUsuario:'$usuario'\nFecha del Pedido:$fechaPedido' \nValor total:$total \nCalificación:'$calificacion' \nEstado:'$estado'$restaurante \nProductos:$productos"
     }
 }

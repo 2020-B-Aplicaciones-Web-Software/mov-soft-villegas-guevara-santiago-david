@@ -6,6 +6,6 @@ class RestauranteOrdenFirebase(
     val uid:String,
 ) {
     override fun toString(): String {
-        return "\n Restaurante: (\nNombre='$nombre', \nCalifación Promedio=$califacionPromedio, \n uid='$uid')"
+        return "\nRestaurante: (\nNombre='$nombre' \nCalifación Promedio=$califacionPromedio \nuid='$uid')"
     }
 }
